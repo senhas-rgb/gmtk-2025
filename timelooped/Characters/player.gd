@@ -4,7 +4,7 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 @onready var anim = $AnimationPlayer
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	var direction = Vector2.ZERO
 
 	if Input.is_action_pressed("right"):
