@@ -7,6 +7,10 @@ extends CharacterBody2D
 @onready var music_player = $"../AudioStreamPlayer"
 @onready var sfx = $"../sfx"
 
+@onready var stamina_bar = $"../UI/Stamina"
+var stamina := 100.0
+var max_stamina := 100.0
+
 var w_key := true
 var a_key := true
 var s_key := true
@@ -15,7 +19,7 @@ var d_key := true
 # Dash
 var is_dashing = false
 var dash_time := 0.2
-var dash_cooldown := 0.5
+var dash_cooldown := 1.5
 var dash_timer := 0.0
 var can_dash := true
 var dash_direction := Vector2.ZERO
@@ -72,7 +76,7 @@ func _physics_process(delta):
 		d_key = true
 
 	# Dash input
-	if Input.is_action_just_pressed("dash") and can_dash:
+	if Input.is_action_just_pressed("dash") and can_dash and stamina >= 20:
 		is_dashing = true
 		can_dash = false
 		dash_timer = dash_time
@@ -80,6 +84,8 @@ func _physics_process(delta):
 		var whoosh = preload("res://Art/whooshshort.mp3")
 		sfx.stream = whoosh
 		sfx.play()
+		stamina -= 20
+		stamina_bar.value = stamina
 
 	# Dash logic
 	if is_dashing:
@@ -102,3 +108,11 @@ func _physics_process(delta):
 		sprite.play("idle_side")
 	if Input.is_action_just_released("right"):
 		sprite.play("idle_side")
+		
+
+
+	if Input.is_action_just_released("down") or Input.is_action_just_released("up") or Input.is_action_just_released("left") or Input.is_action_just_released("right"):
+		if stamina < 100:
+			stamina += 5 * delta
+			stamina = clamp(stamina, 0, 100)
+			stamina_bar.value = stamina
