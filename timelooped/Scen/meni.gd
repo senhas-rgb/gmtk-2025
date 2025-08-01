@@ -21,7 +21,7 @@ func _on_play_pressed() -> void:
 	
 
 func _on_credit_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scen/credits.tscn")
 
 
 func _on_setting_pressed() -> void:
