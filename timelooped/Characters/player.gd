@@ -10,12 +10,14 @@ extends CharacterBody2D
 @onready var stamina_bar = $"../UI/Stamina"
 var stamina := 100.0
 var max_stamina := 100.0
+const TILE_SIZE = 32
+var last_grid_position: Vector2i
+
 
 var w_key := true
 var a_key := true
 var s_key := true
 var d_key := true
-
 # Dash
 var is_dashing = false
 var dash_time := 0.2
@@ -28,8 +30,12 @@ func start_dash_cooldown() -> void:
 	await get_tree().create_timer(dash_cooldown).timeout
 	can_dash = true
 
+func gridinator_inator() -> Vector2i:
+	return Vector2i(floor(position.x / TILE_SIZE), floor(position.y / TILE_SIZE))
+
 
 func _ready():
+	last_grid_position = gridinator_inator()
 	music_player.stream.loop = true
 	var music = preload("res://Art/background.ogg") as AudioStreamOggVorbis
 	music.loop = true
@@ -37,6 +43,10 @@ func _ready():
 	music_player.play()
 
 func _physics_process(delta):
+	var current_grid = gridinator_inator()
+	if current_grid != last_grid_position:
+		print("nove grid", current_grid)
+		last_grid_position = current_grid
 	var direction = Vector2.ZERO
 
 	if Input.is_action_pressed("right") and d_key:

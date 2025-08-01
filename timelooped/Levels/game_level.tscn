@@ -91,6 +91,7 @@ bg_color = Color(0.117096, 0.657831, 0.386387, 1)
 [node name="Player" parent="." instance=ExtResource("1_up8ek")]
 unique_name_in_owner = true
 position = Vector2(75, 37)
+scale = Vector2(0.4, 0.4)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -112,8 +113,10 @@ layer_1/tile_data = PackedInt32Array(131075, 196608, 5, 131076, 196608, 5, 13107
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(75, 37)
+scale = Vector2(0.4, 0.4)
 
 [node name="Enemy" parent="." instance=ExtResource("4_wownj")]
+visible = false
 position = Vector2(264, -5)
 
 [node name="sfx" type="AudioStreamPlayer" parent="."]
