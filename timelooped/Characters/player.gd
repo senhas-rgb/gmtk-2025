@@ -1,8 +1,8 @@
+# fixed lef rigt
 extends CharacterBody2D
 
 @export var speed := 200
 @onready var sprite = $Sprite2D
-@onready var anim = $AnimationPlayer
 @onready var music_player = $"../AudioStreamPlayer"
 
 var w_key := true;
@@ -25,7 +25,7 @@ func _physics_process(_delta):
 
 	if Input.is_action_pressed("right") and d_key:
 		direction.x += 1
-		anim.play("run_side")
+		sprite.play("run_side")
 		sprite.flip_h = direction.x < 0
 		w_key = false;
 		a_key = false;
@@ -33,19 +33,19 @@ func _physics_process(_delta):
 	if Input.is_action_pressed("left") and a_key:
 		direction.x -= 1
 		sprite.flip_h = direction.x < 0
-		anim.play("run_side")
+		sprite.play("run_side")
 		w_key = false;
 		d_key = false;
 		s_key = false;
 	if Input.is_action_pressed("down") and s_key:
 		direction.y += 1
-		anim.play("run_front")
+		sprite.play("run_front")
 		w_key = false;
 		a_key = false;
 		d_key = false;
 	if Input.is_action_pressed("up") and w_key:
 		direction.y -= 1
-		anim.play("run_back")
+		sprite.play("run_back")
 		d_key = false;
 		a_key = false;
 		s_key = false;
@@ -59,10 +59,12 @@ func _physics_process(_delta):
 	move_and_slide()
 	
 	if Input.is_action_just_released("down"):
-		anim.play("idle_front")
+		sprite.play("idle_front")
 	if Input.is_action_just_released("up"):
-		anim.play("idle_back")
+		sprite.play("idle_back")
 	if Input.is_action_just_released("left"):
-		anim.play("idle_front")
+		sprite.flip_h = true
+		sprite.play("idle_side")
 	if Input.is_action_just_released("right"):
-		anim.play("idle_front")
+		sprite.flip_h = false
+		sprite.play("idle_side")
