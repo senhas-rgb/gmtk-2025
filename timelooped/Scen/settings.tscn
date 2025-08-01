@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0kun5l3bl86d"]
+
+[ext_resource type="Script" uid="uid://dyl60n06iylfe" path="res://Scen/settings.gd" id="1_eoclq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eoclq")
+
+[node name="HSlider" type="HSlider" parent="."]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 96.0
+offset_right = 423.0
+offset_bottom = 112.0
+
+[connection signal="value_changed" from="HSlider" to="." method="_on_h_slider_value_changed"]

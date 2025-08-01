@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://mp43h0ywpc4a"]
+[gd_scene load_steps=7 format=3 uid="uid://mp43h0ywpc4a"]
 
 [ext_resource type="PackedScene" uid="uid://drq6i1r6e3n32" path="res://Characters/player.tscn" id="1_up8ek"]
 [ext_resource type="AudioStream" uid="uid://cggqbitt8gbfs" path="res://Art/background.ogg" id="2_wlvk4"]
 [ext_resource type="Texture2D" uid="uid://dt2i06flatmv8" path="res://Art/Tilesets/Grass.png" id="3_wmi5p"]
+[ext_resource type="PackedScene" uid="uid://crxcagibj7pxs" path="res://Characters/enemy.tscn" id="4_wownj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wownj"]
 texture = ExtResource("3_wmi5p")
@@ -82,6 +83,7 @@ sources/0 = SubResource("TileSetAtlasSource_wownj")
 [node name="GameLevel" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_up8ek")]
+unique_name_in_owner = true
 position = Vector2(75, 37)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
@@ -104,3 +106,6 @@ layer_1/tile_data = PackedInt32Array(131075, 196608, 5, 131076, 196608, 5, 13107
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(75, 37)
+
+[node name="Enemy" parent="." instance=ExtResource("4_wownj")]
+position = Vector2(264, -5)
