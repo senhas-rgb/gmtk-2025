@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dshp50w43bwo1"]
+
+[ext_resource type="Texture2D" uid="uid://csocwhfop36nt" path="res://Art/ui/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_fgb4d"]
+[ext_resource type="FontFile" uid="uid://be05wa8g4ynbd" path="res://Art/ui/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_ujepn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmpnu"]
+atlas = ExtResource("1_fgb4d")
+region = Rect2(487, 134, 18, 19)
+
+[node name="InteractableLabelComponent" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 18.0
+offset_bottom = 18.0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 18.0
+offset_bottom = 19.0
+texture = SubResource("AtlasTexture_gmpnu")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = 4.07
+offset_right = 18.0
+offset_bottom = 17.07
+theme_override_fonts/font = ExtResource("2_ujepn")
+theme_override_font_sizes/font_size = 8
+text = "E"
+horizontal_alignment = 1
