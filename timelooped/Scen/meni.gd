@@ -17,7 +17,7 @@ func _ready():
 	audio_stream_player_2d.play()
 
 func _on_play_pressed() -> void:
-	get_tree().change_scene_to_file("res://Levels/game_level.tscn")
+	get_tree().change_scene_to_file("res://Levels/map.tscn")
 	
 
 func _on_credit_pressed() -> void:
