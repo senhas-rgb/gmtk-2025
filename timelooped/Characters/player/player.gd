@@ -7,6 +7,8 @@ class_name Player
 
 const TILE_SIZE = 32
 var last_grid_position: Vector2i
+var position_history: Array[Vector2] = []
+var max_history_length := 2500
 
 var health := 3
 @export var speed := 100
@@ -18,16 +20,9 @@ var s_key := true
 var d_key := true
 
 
-
-
 func gridinator_inator() -> Vector2i:
 	return Vector2i(floor(position.x / TILE_SIZE), floor(position.y / TILE_SIZE))
 func _ready():
-	
-	var cursor_texture = load("res://art/ui/Sprite sheets/Mouse sprites/Triangle Mouse icon 1.png")
-	Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(0, 0))
-
-	
 	load_state_from_file()
 	last_grid_position = gridinator_inator()
 	music_player.stream.loop = true
@@ -41,6 +36,12 @@ func _physics_process(delta):
 		print("nove grid", current_grid)
 		last_grid_position = current_grid
 	var direction = Vector2.ZERO
+
+	if position_history.size() >= max_history_length:
+		position_history.pop_front()
+	position_history.append(position)
+	
+	handle_speeds(delta)
 
 	if Input.is_action_pressed("right") and d_key:
 		direction.x += 1
@@ -100,9 +101,24 @@ func hurt():
 func skillissue():
 	print("L bozo")
 	queue_free()
-	
 func _process(delta: float) -> void:
 	pass
+# handle the reverse and fast_forward
+func handle_speeds(delta):
+	var direction = Vector2.ZERO
+	
+	if Input.is_action_just_pressed("rewind") and position_history.size() > 1:
+		rewind()
+	elif Input.is_action_just_pressed("forward"):
+		forward()
+
+func rewind():
+	if position_history.size() > 1:
+		position = position_history[max(position_history.size() - 100, 0)]
+		print("gone back to", position)
+
+func forward():
+	pass #idk what we are doin for this for now
 #dicktion
 func get_game_state() -> Dictionary:
 	return {

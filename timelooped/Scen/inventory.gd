@@ -29,14 +29,18 @@ func _unhandled_input(event) -> void:
 					get_tree().change_scene_to_file("res://Scen/menu.tscn")
 				if (selected_option == 0):
 					get_tree().change_scene_to_file("res://Scen/bag.tscn")
-				if (selected_option == 1):
-					# save function
-					print("Save function")
+				if selected_option == 1:
+					if is_instance_valid(player):
+						player.save_state_to_file()
+						print("save function")
+					else:
+						print("player gone")
 			elif event.is_action_pressed("ui_down"):
 				if selected_option == 3:
 					selected_option = 1
 				else:
 					selected_option += 1
+					
 				select_pointer.position.y = 75.74 + (selected_option % 3) * 55
 
 			elif event.is_action_pressed("ui_up"):
