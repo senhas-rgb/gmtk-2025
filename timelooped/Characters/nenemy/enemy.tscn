@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhhm8y5xygqlf"]
+
+[ext_resource type="Script" uid="uid://b8tkugf5k2sos" path="res://Characters/nenemy/enemy.gd" id="1_cpshk"]
+[ext_resource type="Texture2D" uid="uid://tfmxs7e84qto" path="res://Art/gonst.png" id="2_pash1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pash1"]
+radius = 32.0
+height = 70.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_cpshk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_pash1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="HurtZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtZone"]
+shape = SubResource("CapsuleShape2D_pash1")
+
+[connection signal="body_entered" from="HurtZone" to="." method="_on_hurt_zone_body_entered"]

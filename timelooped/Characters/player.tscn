@@ -1,0 +1,352 @@
+[gd_scene load_steps=29 format=3 uid="uid://b0p5qmh7r40pr"]
+
+[ext_resource type="Texture2D" uid="uid://c3d4meisj6esv" path="res://Art/player_animations.png" id="2_eovys"]
+
+[sub_resource type="GDScript" id="GDScript_5mj4t"]
+script/source = "extends CharacterBody2D
+
+@export var speed := 200
+@export var dash_speed := 600
+
+@onready var sprite = $Sprite2D
+@onready var music_player = $\"../AudioStreamPlayer\"
+@onready var sfx = $\"../sfx\"
+
+@onready var stamina_bar = $\"../UI/Stamina\"
+var stamina := 100.0
+var max_stamina := 100.0
+const TILE_SIZE = 32
+var last_grid_position: Vector2i
+
+	
+var w_key := true
+var a_key := true
+var s_key := true
+var d_key := true
+# Dash
+var is_dashing = false
+var dash_time := 0.2
+var dash_cooldown := 1.5
+var dash_timer := 0.0
+var can_dash := true
+var dash_direction := Vector2.ZERO
+
+func start_dash_cooldown() -> void:
+	await get_tree().create_timer(dash_cooldown).timeout
+	can_dash = true
+
+func gridinator_inator() -> Vector2i:
+	return Vector2i(floor(position.x / TILE_SIZE), floor(position.y / TILE_SIZE))
+
+
+func _ready():
+	last_grid_position = gridinator_inator()
+	music_player.stream.loop = true
+	var music = preload(\"res://Art/background.ogg\") as AudioStreamOggVorbis
+	music.loop = true
+	music_player.stream = music
+	music_player.play()
+
+func _physics_process(delta):
+	var current_grid = gridinator_inator()
+	if current_grid != last_grid_position:
+		print(\"nove grid\", current_grid)
+		last_grid_position = current_grid
+	var direction = Vector2.ZERO
+
+	if Input.is_action_pressed(\"right\") and d_key:
+		direction.x += 1
+		sprite.play(\"run_side\")
+		sprite.flip_h = false
+		w_key = false
+		a_key = false
+		s_key = false
+
+	if Input.is_action_pressed(\"left\") and a_key:
+		direction.x -= 1
+		sprite.play(\"run_side\")
+		sprite.flip_h = true
+		w_key = false
+		d_key = false
+		s_key = false
+
+	if Input.is_action_pressed(\"down\") and s_key:
+		direction.y += 1
+		sprite.play(\"run_front\")
+		w_key = false
+		a_key = false
+		d_key = false
+
+	if Input.is_action_pressed(\"up\") and w_key:
+		direction.y -= 1
+		sprite.play(\"run_back\")
+		d_key = false
+		a_key = false
+		s_key = false
+
+	if direction == Vector2.ZERO:
+		w_key = true
+		a_key = true
+		s_key = true
+		d_key = true
+
+	# Dash input
+	if Input.is_action_just_pressed(\"dash\") and can_dash and stamina >= 20:
+		is_dashing = true
+		can_dash = false
+		dash_timer = dash_time
+		dash_direction = direction.normalized() if direction != Vector2.ZERO else velocity.normalized()
+		var whoosh = preload(\"res://Art/whooshshort.mp3\")
+		sfx.stream = whoosh
+		sfx.play()
+		stamina -= 20
+		stamina_bar.value = stamina
+
+	# Dash logic
+	if is_dashing:
+		velocity = dash_direction * dash_speed
+		dash_timer -= delta
+		if dash_timer <= 0:
+			is_dashing = false
+			start_dash_cooldown()
+	else:
+		velocity = direction.normalized() * speed
+
+	move_and_slide()
+
+	# Idle animations
+	if Input.is_action_just_released(\"down\"):
+		sprite.play(\"idle_front\")
+	if Input.is_action_just_released(\"up\"):
+		sprite.play(\"idle_back\")
+	if Input.is_action_just_released(\"left\"):
+		sprite.play(\"idle_side\")
+	if Input.is_action_just_released(\"right\"):
+		sprite.play(\"idle_side\")
+		
+
+
+	if Input.is_action_just_released(\"down\") or Input.is_action_just_released(\"up\") or Input.is_action_just_released(\"left\") or Input.is_action_just_released(\"right\"):
+		if stamina < 100:
+			stamina += 5 * delta
+			stamina = clamp(stamina, 0, 100)
+			stamina_bar.value = stamina
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3rah"]
+atlas = ExtResource("2_eovys")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4gpq"]
+atlas = ExtResource("2_eovys")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_642pg"]
+atlas = ExtResource("2_eovys")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6x5r"]
+atlas = ExtResource("2_eovys")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22qw1"]
+atlas = ExtResource("2_eovys")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mevwr"]
+atlas = ExtResource("2_eovys")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iga2k"]
+atlas = ExtResource("2_eovys")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0e2x"]
+atlas = ExtResource("2_eovys")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8an5f"]
+atlas = ExtResource("2_eovys")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qaj4"]
+atlas = ExtResource("2_eovys")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h3pa0"]
+atlas = ExtResource("2_eovys")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibds6"]
+atlas = ExtResource("2_eovys")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw3oq"]
+atlas = ExtResource("2_eovys")
+region = Rect2(0, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l7lf"]
+atlas = ExtResource("2_eovys")
+region = Rect2(32, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0rrrc"]
+atlas = ExtResource("2_eovys")
+region = Rect2(64, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4heda"]
+atlas = ExtResource("2_eovys")
+region = Rect2(96, 160, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eovys"]
+atlas = ExtResource("2_eovys")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb825"]
+atlas = ExtResource("2_eovys")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65n15"]
+atlas = ExtResource("2_eovys")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l48on"]
+atlas = ExtResource("2_eovys")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m0gv"]
+atlas = ExtResource("2_eovys")
+region = Rect2(0, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p728j"]
+atlas = ExtResource("2_eovys")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5slg2"]
+atlas = ExtResource("2_eovys")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cbmiu"]
+atlas = ExtResource("2_eovys")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w3rah"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3rah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4gpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_642pg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6x5r")
+}],
+"loop": true,
+"name": &"idle_back",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22qw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mevwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iga2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y0e2x")
+}],
+"loop": false,
+"name": &"idle_front",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8an5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qaj4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h3pa0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibds6")
+}],
+"loop": true,
+"name": &"idle_side",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw3oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0l7lf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0rrrc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4heda")
+}],
+"loop": true,
+"name": &"run_back",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eovys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vb825")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65n15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l48on")
+}],
+"loop": true,
+"name": &"run_front",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m0gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p728j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5slg2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cbmiu")
+}],
+"loop": true,
+"name": &"run_side",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5mj4t"]
+size = Vector2(24, 29)
+
+[node name="Player" type="CharacterBody2D"]
+script = SubResource("GDScript_5mj4t")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_w3rah")
+animation = &"idle_front"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_5mj4t")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)

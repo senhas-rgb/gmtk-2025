@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://cur1rxrwd4yb4"]
+[gd_scene load_steps=6 format=4 uid="uid://cur1rxrwd4yb4"]
 
 [ext_resource type="TileSet" uid="uid://cvpbinyf7ojqs" path="res://tilesets/game_tile_set.tres" id="1_qpn7y"]
 [ext_resource type="PackedScene" uid="uid://drq6i1r6e3n32" path="res://Characters/player/player.tscn" id="2_yjb6t"]
 [ext_resource type="AudioStream" uid="uid://cggqbitt8gbfs" path="res://Art/background.ogg" id="3_borke"]
 [ext_resource type="PackedScene" uid="uid://dewgr5r0ur6f8" path="res://Characters/guide/Guide.tscn" id="4_rxu6g"]
+[ext_resource type="PackedScene" uid="uid://dhhm8y5xygqlf" path="res://Characters/nenemy/enemy.tscn" id="5_ggo44"]
 
 [node name="testscenetilemap" type="Node2D"]
 
@@ -25,18 +26,13 @@ tile_map_data = PackedByteArray("AAAGAAIAAgAAAAAAAAAHAAIAAgABAAAAAAAIAAIAAgABAAA
 tile_set = ExtResource("1_qpn7y")
 
 [node name="greenstuff" type="TileMapLayer" parent="gametilemap"]
-z_index = -10
+z_index = 1
 tile_map_data = PackedByteArray("AAAMABEAAwAFAAIAAAARAA4AAwAFAAEAAAASAA4AAwAGAAEAAAAMAA0AAwADAAAAAAAUAAwAAwADAAAAAAAQAAkAAwADAAAAAAAYAAkAAwADAAAAAAAFAAQAAwADAAAAAAAFAAYAAwADAAAAAAAEAAcAAwADAAAAAAAFAAcAAwADAAAAAAAHAAYAAwABAAAAAAALAAUAAwABAAAAAAAHAAkAAwABAAAAAAAKAAkAAwABAAAAAAAKAAIAAwAAAAAAAAALAAIAAwAAAAAAAAAKAAEAAwAAAAAAAAAIAAEAAwAAAAAAAAAJAAEAAwAAAAAAAAAHAAEAAwAAAAAAAAAGAAEAAwAAAAAAAAAFAAEAAwAAAAAAAAAEAAEAAwAAAAAAAAALAAEAAwAAAAAAAAAGAAkAAwAAAAAAAAAFAAkAAwAAAAMAAAAFAAgAAwAAAAMAAAAKAAQAAwAAAAMAAAALAAQAAwAAAAMAAAAKAAMAAwAAAAMAAAAKAAUAAwABAAMAAAAKAAYAAwABAAMAAAAKAAcAAwABAAMAAAAMAAoAAwAHAAAAAAANAAoAAwAIAAAAAAAWAA4AAwAFAAAAAAAXAA4AAwAGAAAAAAAcAA4AAwAGAAIAAAAeAAwAAwAGAAIAAAAgAAkAAwAGAAIAAAASAAkAAwAGAAIAAAAPABEAAwAGAAIAAAAKAA4AAwAGAAIAAAAIAA0AAwAGAAMAAAAPAAkAAwAGAAMAAAAWAAkAAwAGAAMAAAAbAAkAAwAGAAMAAAAZAA4AAwAGAAMAAAAVAA4AAwAHAAMAAAAUAAkAAwAHAAMAAAAKAA0AAwAHAAMAAAAbAA4AAwAFAAMAAAAgABAAAwAFAAMAAAAHAAgAAwAFAAMAAAAQAA4AAwAIAAEAAAAPAA4AAwAHAAEAAAATABEAAwAFAAQAAAAUABEAAwAGAAQAAAASABEAAwAGAAQAAAATABIAAwAGAAQAAAAZABIAAwAIAAQAAAAaABEAAwAIAAQAAAAWABEAAwAIAAQAAAAdABEAAwAIAAQAAAAdAAoAAwAIAAQAAAAeAAkAAwAIAAQAAAAgABIAAwAIAAIAAAAhABIAAwAIAAIAAAAiABIAAwAIAAIAAAAjABIAAwAIAAIAAAAPAAcAAwAAAAAAAAAaAAcAAwAAAAAAAAAaAAYAAwAAAAAAAAAaAAUAAwAAAAAAAAAaAAQAAwAAAAAAAAAaAAMAAwAAAAAAAAAaAAIAAwAAAAAAAAAPAAYAAwAFAAAAAAAPAAUAAwAFAAAAAAAPAAQAAwAFAAAAAAAPAAMAAwABAAAAAAAPAAEAAwABAAAAAAAQAP//AwADAAAAAAASAP//AwADAAAAAAAVAP//AwADAAAAAAAWAP//AwADAAAAAAAPAAAAAwAIAAIAAAAYAP//AwAIAAIAAAAZAP//AwAIAAIAAAAaAP//AwAIAAIAAAAaAAAAAwAIAAIAAAAaAAEAAwAIAAIAAAALAAYAAwABAAAAAAAEAAQAAwABAAAAAAAEAAUAAwABAAAAAAAGAAUAAwABAAAAAAAHAAUAAwABAAAAAAA=")
 tile_set = ExtResource("1_qpn7y")
 
 [node name="houses" type="TileMapLayer" parent="gametilemap"]
 tile_map_data = PackedByteArray("AAAQAAgABAAAAAAAAQAUAAgABAAAAAAAAgAVAAgABAAAAAAAAgA=")
 tile_set = ExtResource("1_qpn7y")
-
-[node name="Player" parent="." instance=ExtResource("2_yjb6t")]
-position = Vector2(299, 189)
-scale = Vector2(0.586529, 0.554193)
-collision_layer = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_borke")
@@ -46,3 +42,13 @@ parameters/looping = true
 [node name="Guide" parent="." instance=ExtResource("4_rxu6g")]
 position = Vector2(264, 172)
 scale = Vector2(0.58, 0.58)
+
+[node name="Player" parent="." instance=ExtResource("2_yjb6t")]
+position = Vector2(299, 189)
+scale = Vector2(0.5, 0.472)
+collision_layer = 3
+
+[node name="Enem" parent="." instance=ExtResource("5_ggo44")]
+position = Vector2(366, 192)
+scale = Vector2(0.5, 0.5)
+collision_layer = 3

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://be6w7q54jepvb"]
+
+[node name="Esc-menu" type="Node2D"]
+visible = false
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="resume" type="Button" parent="PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -45.5
+offset_right = 159.0
+offset_bottom = 45.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "RESUME"
+autowrap_mode = 1
+
+[node name="exit" type="Button" parent="PauseMenu/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -163.0
+offset_top = 50.0
+offset_right = 171.0
+offset_bottom = 141.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 60
+text = "EXIT"
+autowrap_mode = 1
+
+[connection signal="pressed" from="PauseMenu/Panel/resume" to="PauseMenu/Panel/resume" method="_on_pressed"]
+[connection signal="pressed" from="PauseMenu/Panel/exit" to="PauseMenu/Panel/exit" method="_on_pressed"]

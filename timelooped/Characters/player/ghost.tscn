@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://c02mp42s5562"]
+
+[ext_resource type="Texture2D" uid="uid://tfmxs7e84qto" path="res://Art/gonst.png" id="2_2ej5m"]
+
+[sub_resource type="GDScript" id="GDScript_pvl78"]
+script/source = "extends CharacterBody2D
+
+const TILE_SIZE = 32
+var path: Array[Vector2i] = []
+var current_index := 0
+var move_timer := 0.0
+var move_interval := 0.2  # Time between each step
+
+func _ready():
+	print(\"ghost spawned at\", path)
+
+func _physics_process(delta):
+	if current_index >= path.size():
+		return
+
+	move_timer += delta
+	if move_timer >= move_interval:
+		move_timer = 0.0
+		var target_tile = path[current_index]
+		position = target_tile * TILE_SIZE
+		current_index += 1
+"
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = SubResource("GDScript_pvl78")
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2ej5m")

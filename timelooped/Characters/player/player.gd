@@ -7,6 +7,8 @@ class_name Player
 
 const TILE_SIZE = 32
 var last_grid_position: Vector2i
+
+var health := 3
 @export var speed := 100
 
 
@@ -18,8 +20,6 @@ var d_key := true
 
 func gridinator_inator() -> Vector2i:
 	return Vector2i(floor(position.x / TILE_SIZE), floor(position.y / TILE_SIZE))
-
-
 func _ready():
 	last_grid_position = gridinator_inator()
 	music_player.stream.loop = true
@@ -27,7 +27,6 @@ func _ready():
 	music.loop = true
 	music_player.stream = music
 	music_player.play()
-
 func _physics_process(delta):
 	var current_grid = gridinator_inator()
 	if current_grid != last_grid_position:
@@ -83,5 +82,12 @@ func _physics_process(delta):
 		sprite.play("idle_side")
 	if Input.is_action_just_released("right"):
 		sprite.play("idle_side")
-		
-		
+func hurt():
+	health -= 1
+	print("health", health)
+
+	if health <= 0:
+		skillissue()
+func skillissue():
+	print("L bozo")
+	queue_free()
