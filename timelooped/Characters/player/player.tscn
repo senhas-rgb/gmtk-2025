@@ -316,6 +316,7 @@ _data = {
 size = Vector2(16, 20)
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 script = ExtResource("1_eovys")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
