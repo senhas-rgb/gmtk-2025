@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkg04avs52m4a"]
+[gd_scene load_steps=5 format=3 uid="uid://dkg04avs52m4a"]
 
 [ext_resource type="Script" uid="uid://o45o44rywlxh" path="res://dialog/game_dialuge_balloon.gd" id="1_2mmpv"]
 [ext_resource type="PackedScene" uid="uid://ckvgyvclnwggo" path="res://addons/dialogue_manager/dialogue_label.tscn" id="2_3a81p"]
 [ext_resource type="Theme" uid="uid://c88n8psvluno8" path="res://dialog/dialog_balloon_theme.tres" id="2_auf8g"]
 [ext_resource type="Script" uid="uid://bb52rsfwhkxbn" path="res://addons/dialogue_manager/dialogue_responses_menu.gd" id="3_l3qw2"]
-[ext_resource type="PackedScene" uid="uid://biy7mkknlqypa" path="res://dialog/ui/emotepanel.tscn" id="4_nbbt3"]
 
 [node name="GameDialogueBalloon" type="CanvasLayer"]
 layer = 100
@@ -82,12 +81,6 @@ response_template = NodePath("ResponseExample")
 [node name="ResponseExample" type="Button" parent="Balloon/ResponsesMenu"]
 layout_mode = 2
 text = "Response example"
-
-[node name="emotepanel" parent="." instance=ExtResource("4_nbbt3")]
-offset_left = 22.0
-offset_top = 238.0
-offset_right = 72.0
-offset_bottom = 288.0
 
 [connection signal="gui_input" from="Balloon" to="." method="_on_balloon_gui_input"]
 [connection signal="response_selected" from="Balloon/ResponsesMenu" to="." method="_on_responses_menu_response_selected"]

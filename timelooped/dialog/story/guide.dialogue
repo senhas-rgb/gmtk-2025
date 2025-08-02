@@ -1,12 +1,19 @@
 ~ start
-Peenix: [[Hi|Hello|Howdy]], this is some dialogue.
-Peenix: ik how much of a gonner you are
-Peenix: Pick one.
-- Quzet
-	Peenix: Quzet is the best and only godot gamedev from austrailia
-- Anjo
-	Peenix: Big Chungus
+Unknown: Time broke before the world did. When the sky cracked and the ground bled, most didn’t survive the first wave. You did—barely. But not because you're lucky... *click to continue*
+Unknown: ...because you weren’t supposed to be here at all.
+Player: *You starts thinking*
+Player: What happened...? Everything’s... gone.
+Player: Here... Take this. I found it laying in the floor.
+Player: *Picks up a torn note*
+Torn Note: "If you’re reading this... it worked. You reversed just enough to land after the Collapse. Time’s not your enemy anymore—it’s your tool. Use it. Survive. And when you’re ready... skip ahead. See what’s next before it sees you."
+Unknown: *softly with a distorted voice*
+Unknown: You can’t change the past. But you can make it easier to survive.
+Unknown: Here take this... This will allow you to travel through time...
+- Take ChronoCore
+Player: *Turns on the device*
+ChronoCore: Syncing... Press [R] to rewind. Press [F] to fast-forward. But be warned: skipping time doesn't mean skipping danger.
+Unknown: Good luck!
 - Start again => start
-- Stop this shit => END
-Peenix: OK brother bye
+- leave
+Unknown: Remember... Survival isn’t about what you do ...it’s about when you do it.
 => END
