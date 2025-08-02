@@ -18,9 +18,16 @@ var s_key := true
 var d_key := true
 
 
+
+
 func gridinator_inator() -> Vector2i:
 	return Vector2i(floor(position.x / TILE_SIZE), floor(position.y / TILE_SIZE))
 func _ready():
+	
+	var cursor_texture = load("res://art/ui/Sprite sheets/Mouse sprites/Triangle Mouse icon 1.png")
+	Input.set_custom_mouse_cursor(cursor_texture, Input.CURSOR_ARROW, Vector2(0, 0))
+
+	
 	load_state_from_file()
 	last_grid_position = gridinator_inator()
 	music_player.stream.loop = true
