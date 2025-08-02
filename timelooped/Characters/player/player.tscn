@@ -1,9 +1,10 @@
-[gd_scene load_steps=35 format=3 uid="uid://drq6i1r6e3n32"]
+[gd_scene load_steps=36 format=3 uid="uid://drq6i1r6e3n32"]
 
 [ext_resource type="Script" uid="uid://tyxrj5e3gjrj" path="res://Characters/player/player.gd" id="1_eovys"]
 [ext_resource type="Texture2D" uid="uid://c3d4meisj6esv" path="res://Art/player_animations.png" id="2_eovys"]
 [ext_resource type="Texture2D" uid="uid://dvbxieywycnks" path="res://Art/player_back_run.png" id="3_763xw"]
 [ext_resource type="Texture2D" uid="uid://c8sejkptl8sas" path="res://Art/player_front_run.png" id="3_bhxk0"]
+[ext_resource type="AudioStream" uid="uid://bkn4rj8spkuu3" path="res://Art/hurt.wav" id="5_6wacn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w3rah"]
 atlas = ExtResource("2_eovys")
@@ -334,4 +335,18 @@ position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_5mj4t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+z_index = 9
 zoom = Vector2(4, 4)
+
+[node name="HealthLabel" type="Label" parent="."]
+unique_name_in_owner = true
+offset_left = -80.0
+offset_top = 29.0
+offset_right = -10.0
+offset_bottom = 52.0
+theme_override_font_sizes/font_size = 14
+text = "Health: 0"
+
+[node name="HurtSound" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("5_6wacn")

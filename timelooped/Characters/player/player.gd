@@ -88,6 +88,11 @@ func hurt():
 
 	if health <= 0:
 		skillissue()
+	%HurtSound.play()
 func skillissue():
+	%HurtSound.play()
 	print("L bozo")
 	queue_free()
+	
+func _process(delta: float) -> void:
+	%HealthLabel.text = "Health: " + str(health)
