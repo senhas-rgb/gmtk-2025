@@ -13,7 +13,8 @@ Unknown: Here take this... This will allow you to travel through time...
 Player: *Turns on the device*
 ChronoCore: Syncing... Press [R] to rewind. Press [F] to fast-forward. But be warned: skipping time doesn't mean skipping danger.
 Unknown: Good luck!
-- Start again => start
+- Start again => start 
 - time travel
 Unknown: Remember... Survival isn’t about what you do ...it’s about when you do it.
+do Global.action_change_scene("res://Levels/house.tscn")
 => END

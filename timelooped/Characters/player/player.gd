@@ -2,7 +2,6 @@ extends CharacterBody2D
 class_name Player
 
 @onready var sprite = $Sprite2D
-@onready var music_player = $"../AudioStreamPlayer"
 @export var current_tool: DataTypes.Tools = DataTypes.Tools.None # player doesnt have anything in start
 
 const TILE_SIZE = 32
@@ -25,11 +24,6 @@ func gridinator_inator() -> Vector2i:
 func _ready():
 	load_state_from_file()
 	last_grid_position = gridinator_inator()
-	music_player.stream.loop = true
-	var music = preload("res://Art/background.ogg") as AudioStreamOggVorbis
-	music.loop = true
-	music_player.stream = music
-	music_player.play()
 func _physics_process(delta):
 	var current_grid = gridinator_inator()
 	if current_grid != last_grid_position:

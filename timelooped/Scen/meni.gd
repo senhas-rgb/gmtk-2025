@@ -2,7 +2,10 @@ extends Control
 
 @onready var play: Button = $VBoxContainer/play
 @onready var credit: Button = $VBoxContainer/credit
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+
+
+
 
 func _on_resume_button_pressed():
 	get_tree().paused = false
@@ -14,7 +17,7 @@ func _on_exit_button_pressed():
 
 
 func _ready():
-	audio_stream_player_2d.play()
+	pass
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://Levels/intro.tscn")
