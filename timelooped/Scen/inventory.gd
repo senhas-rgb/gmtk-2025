@@ -27,6 +27,11 @@ func _unhandled_input(event) -> void:
 				print(selected_option)
 				if (selected_option == 2):
 					get_tree().change_scene_to_file("res://Scen/menu.tscn")
+				if (selected_option == 0):
+					get_tree().change_scene_to_file("res://Scen/bag.tscn")
+				if (selected_option == 1):
+					# save function
+					print("Save function")
 			elif event.is_action_pressed("ui_down"):
 				if selected_option == 3:
 					selected_option = 1

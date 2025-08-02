@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://daclt2hw7krbd"]
+
+[ext_resource type="Script" uid="uid://das6iirly2wjb" path="res://Levels/items/apple.gd" id="1_d7kbw"]
+[ext_resource type="Texture2D" uid="uid://bxe70h6o8q1em" path="res://Art/Tilesets/Basic_Plants.png" id="1_qbhec"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7kbw"]
+atlas = ExtResource("1_qbhec")
+region = Rect2(82, 17, 12, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwrqu"]
+size = Vector2(12, 13)
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_d7kbw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 0.25)
+scale = Vector2(1, 1.03333)
+texture = SubResource("AtlasTexture_d7kbw")
+
+[node name="apple" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="apple"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_uwrqu")

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://474hn1c7swdt"
+path="res://.godot/imported/player_see_apple.dialogue-de8d4659f6e5eac67c9b120614878b90.tres"
+
+[deps]
+
+source_file="res://dialog/story/player_see_apple.dialogue"
+dest_files=["res://.godot/imported/player_see_apple.dialogue-de8d4659f6e5eac67c9b120614878b90.tres"]
+
+[params]
+
+defaults=true
