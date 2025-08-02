@@ -7,7 +7,7 @@ extends CanvasLayer
 enum ScreenLoaded { NOTHING, JUST_MENU}
 var screen_loaded = ScreenLoaded.NOTHING
 
-var selected_option: int = 0
+var selected_option: int = 1
 
 func _ready() -> void:
 	menu.visible = false;
@@ -24,13 +24,19 @@ func _unhandled_input(event) -> void:
 			if event.is_action_pressed("menu_key") or event.is_action_pressed("select"):
 				menu.visible = false
 				screen_loaded = ScreenLoaded.NOTHING
+				print(selected_option)
+				if (selected_option == 2):
+					get_tree().change_scene_to_file("res://Scen/menu.tscn")
 			elif event.is_action_pressed("ui_down"):
-				selected_option += 1
+				if selected_option == 3:
+					selected_option = 1
+				else:
+					selected_option += 1
 				select_pointer.position.y = 75.74 + (selected_option % 3) * 55
 
 			elif event.is_action_pressed("ui_up"):
 				if selected_option == 0:
-					selected_option = 5
+					selected_option = 3
 				else:
 					selected_option -= 1
 				select_pointer.position.y = 75.74 + (selected_option % 3) * 55
