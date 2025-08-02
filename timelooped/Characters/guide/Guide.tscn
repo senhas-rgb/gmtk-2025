@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dewgr5r0ur6f8"]
+[gd_scene load_steps=14 format=3 uid="uid://dewgr5r0ur6f8"]
 
 [ext_resource type="PackedScene" uid="uid://bs7d5l7rkftls" path="res://components/interactable.tscn" id="1_5cyoy"]
 [ext_resource type="Shader" uid="uid://uj4r5831881a" path="res://Characters/guide/replace_color.gdshader" id="1_akhua"]
@@ -52,6 +52,9 @@ animations = [{
 "speed": 3.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pmvwy"]
+radius = 14.0357
+
 [node name="Guide" type="Node2D"]
 script = ExtResource("1_pmvwy")
 
@@ -70,6 +73,11 @@ animation = &"idle"
 autoplay = "idle"
 frame = 1
 frame_progress = 0.00147647
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/CharacterBody2D"]
+shape = SubResource("CircleShape2D_pmvwy")
 
 [node name="InteractableLabelComponent" parent="." instance=ExtResource("5_cgxmi")]
 offset_left = -30.0

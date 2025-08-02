@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://be6w7q54jepvb"]
+[gd_scene load_steps=0 format=3 uid="uid://be6w7q54jepvb"]
 
 [node name="Esc-menu" type="Node2D"]
 visible = false
