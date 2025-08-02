@@ -95,4 +95,4 @@ func skillissue():
 	queue_free()
 	
 func _process(delta: float) -> void:
-	%HealthLabel.text = "Health: " + str(health)
+	pass
