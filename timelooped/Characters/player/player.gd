@@ -90,7 +90,6 @@ func hurt():
 		skillissue()
 	%HurtSound.play()
 func skillissue():
-	%HurtSound.play()
 	print("L bozo")
 	queue_free()
 	
