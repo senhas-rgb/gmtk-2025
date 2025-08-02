@@ -21,6 +21,7 @@ var d_key := true
 func gridinator_inator() -> Vector2i:
 	return Vector2i(floor(position.x / TILE_SIZE), floor(position.y / TILE_SIZE))
 func _ready():
+	load_state_from_file()
 	last_grid_position = gridinator_inator()
 	music_player.stream.loop = true
 	var music = preload("res://Art/background.ogg") as AudioStreamOggVorbis
@@ -95,3 +96,39 @@ func skillissue():
 	
 func _process(delta: float) -> void:
 	pass
+#dicktion
+func get_game_state() -> Dictionary:
+	return {
+		"grid_position": gridinator_inator(),
+		"world_position": position,
+		"health": health,
+		"current_tool": str(current_tool)
+	}
+#nugets ultimate save engine, copyright Nuget Incorporated 2025 for the GMTK 2025 Game Jam, all rights reserved
+func save_state_to_file():
+	var state = get_game_state()
+	var file = FileAccess.open("res://savegame.json", FileAccess.WRITE)
+	if file:
+		file.store_string(JSON.stringify(state))
+		file.close()
+		print("saved to ", file)
+#nugets ultimate load engine, copyright Nuget Incorporated 2025 for the GMTK 2025 Game Jam, all rights reserved
+func load_state_from_file():
+	if FileAccess.file_exists("res://savegame.json"):
+		var file = FileAccess.open("res://savegame.json", FileAccess.READ)
+		if file:
+			var content = file.get_as_text()
+			file.close()
+			
+			var result = JSON.parse_string(content)
+			if typeof(result) == TYPE_DICTIONARY:
+				apply_game_state(result)
+			else:
+				print("json is fucked, all your savedata is gone")
+		else:
+			print("no save file found")
+#apply actual stuff so it like actually works, copyright Nuget Incorporated 2025 for the GMTK 2025 Game Jam, all rights reserved
+func apply_game_state(state: Dictionary):
+		if state.has("health"):
+			health = int(state["health"])
+			print("Loaded health:", health)
