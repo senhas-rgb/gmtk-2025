@@ -99,10 +99,10 @@ func _process(delta: float) -> void:
 #dicktion
 func get_game_state() -> Dictionary:
 	return {
-		"grid_position": gridinator_inator(),
-		"world_position": position,
+		"grid_position": gridinator_inator(), #not used
+		"world_position": position, #not used
 		"health": health,
-		"current_tool": str(current_tool)
+		"current_tool": str(current_tool) 
 	}
 #nugets ultimate save engine, copyright Nuget Incorporated 2025 for the GMTK 2025 Game Jam, all rights reserved
 func save_state_to_file():
