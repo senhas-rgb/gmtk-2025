@@ -6,11 +6,13 @@ class_name Player
 
 const TILE_SIZE = 32
 var last_grid_position: Vector2i
-var position_history: Array[Vector2] = []
-var max_history_length := 2500
+var rewind_checkpoint: Vector2 = Vector2.ZERO
+var has_checkpoint := false
 
 var health := 3
 @export var speed := 100
+@export var base := 100
+@export var fast := 500
 
 
 var w_key := true
@@ -31,10 +33,6 @@ func _physics_process(delta):
 		last_grid_position = current_grid
 	var direction = Vector2.ZERO
 
-	if position_history.size() >= max_history_length:
-		position_history.pop_front()
-	position_history.append(position)
-	
 	handle_speeds(delta)
 
 	if Input.is_action_pressed("right") and d_key:
@@ -99,20 +97,20 @@ func _process(delta: float) -> void:
 	pass
 # handle the reverse and fast_forward
 func handle_speeds(delta):
-	var direction = Vector2.ZERO
+	if Input.is_action_just_pressed("make_rewind"):
+		rewind_checkpoint = position
+		has_checkpoint = true
+		print("made point at ", position)
 	
-	if Input.is_action_just_pressed("rewind") and position_history.size() > 1:
-		rewind()
-	elif Input.is_action_just_pressed("forward"):
-		forward()
+	elif Input.is_action_just_pressed("rewind") and has_checkpoint:
+		position = rewind_checkpoint
+		print("rewound to ", position)
+		
+	elif Input.is_action_pressed("forward"):
+		speed = fast
+	else:
+		speed = base
 
-func rewind():
-	if position_history.size() > 1:
-		position = position_history[max(position_history.size() - 100, 0)]
-		print("gone back to", position)
-
-func forward():
-	pass #idk what we are doin for this for now
 #dicktion
 func get_game_state() -> Dictionary:
 	return {
