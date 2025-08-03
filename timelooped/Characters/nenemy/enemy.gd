@@ -4,7 +4,7 @@ var balloon_scene = preload("res://dialog/game_dialuge_balloon.tscn")
 
 @onready var interactable_component: Interactable = $Interactable
 @onready var interactable_label_component: Control = $InteractableLabelComponent
-
+@onready var enemy: CharacterBody2D = $"."
 var in_range: bool
 
 func _ready() -> void:
@@ -19,6 +19,7 @@ func on_interactable_activated() -> void:
 func on_interactable_deactivated() -> void:
 	interactable_label_component.hide()
 	in_range = false
+	queue_free()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if in_range:
