@@ -1,0 +1,5 @@
+~ start
+Enemy: hi
+Player: Hello.
+Enemy: im going to fight you now
+do Global.action_change_scene("res://Scen/battle/battle.tscn")

@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bh21ml10tr2jl"
+path="res://.godot/imported/enemy.dialogue-3f8f08b91f1440c8ca0da017a2ff043d.tres"
+
+[deps]
+
+source_file="res://dialog/misc/enemy.dialogue"
+dest_files=["res://.godot/imported/enemy.dialogue-3f8f08b91f1440c8ca0da017a2ff043d.tres"]
+
+[params]
+
+defaults=true

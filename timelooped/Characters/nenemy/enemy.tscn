@@ -1,17 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhhm8y5xygqlf"]
+[gd_scene load_steps=7 format=3 uid="uid://dhhm8y5xygqlf"]
 
 [ext_resource type="Script" uid="uid://b8tkugf5k2sos" path="res://Characters/nenemy/enemy.gd" id="1_cpshk"]
-[ext_resource type="Texture2D" uid="uid://tfmxs7e84qto" path="res://Art/gonst.png" id="2_pash1"]
+[ext_resource type="SpriteFrames" uid="uid://c6du7xctn7uhw" path="res://Characters/nenemy/enemyframes.tres" id="2_pash1"]
+[ext_resource type="PackedScene" uid="uid://bs7d5l7rkftls" path="res://components/interactable.tscn" id="3_5a203"]
+[ext_resource type="PackedScene" uid="uid://dshp50w43bwo1" path="res://components/interactable_label_component.tscn" id="4_v5ohd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pash1"]
 radius = 32.0
 height = 70.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jraw8"]
+radius = 28.0179
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_cpshk")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_pash1")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_pash1")
+animation = &"idle"
+frame_progress = 0.708702
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(0.5, 0.5)
@@ -20,5 +27,17 @@ scale = Vector2(0.5, 0.5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtZone"]
 shape = SubResource("CapsuleShape2D_pash1")
+
+[node name="Interactable" parent="." instance=ExtResource("3_5a203")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_jraw8")
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_v5ohd")]
+offset_left = -30.0
+offset_top = -42.0
+offset_right = -12.0
+offset_bottom = -23.0
 
 [connection signal="body_entered" from="HurtZone" to="." method="_on_hurt_zone_body_entered"]

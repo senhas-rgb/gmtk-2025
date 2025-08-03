@@ -105,6 +105,8 @@ func handle_speeds(delta):
 	elif Input.is_action_just_pressed("rewind") and has_point:
 		position = rewind_point
 		print("rewound to ", rewind_point)
+		health - 1
+		save_state_to_file()
 	elif Input.is_action_pressed("forward"):
 		speed = fast
 	else:

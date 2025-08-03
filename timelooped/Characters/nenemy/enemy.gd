@@ -1,44 +1,28 @@
-extends CharacterBody2D
+extends Node2D
 
-@export var speed := 40
-@export var patrol_distance := 100
-@onready var getkilledzone = $KillEnemyZone
 var balloon_scene = preload("res://dialog/game_dialuge_balloon.tscn")
 
-var start_position: Vector2
-var moving_right := true
+@onready var interactable_component: Interactable = $Interactable
+@onready var interactable_label_component: Control = $InteractableLabelComponent
 
-func _ready():
-	start_position = position
-	getkilledzone.body_entered.connect(_on_player_near)
-	getkilledzone.body_exited.connect(_on_player_far)
+var in_range: bool
+
+func _ready() -> void:
+	interactable_component.interactable_activated.connect(on_interactable_activated)
+	interactable_component.interactable_deactivated.connect(on_interactable_deactivated)
+	interactable_label_component.hide()
 	
+func on_interactable_activated() -> void:
+	interactable_label_component.show()
+	in_range = true
+		
+func on_interactable_deactivated() -> void:
+	interactable_label_component.hide()
+	in_range = false
 
-func _physics_process(delta):
-	var direction = Vector2.RIGHT if moving_right else Vector2.LEFT
-	velocity = direction * speed
-	move_and_slide()
-
-	if abs(position.x - start_position.x) > patrol_distance:
-		moving_right = !moving_right
-
-
-
-func _on_hurt_zone_body_entered(body: Node2D) -> void:
-	print("touch poke prod whiaodsadh9iosaumdhioasda")
-
-	if body is Player:
-		body.hurt()
-
-
-
-func _on_player_near(body) -> void:
-	if body.name == "Player":
-		print("Player is near the apple")
-		var balloon: BaseGameDialogueBalloon = balloon_scene.instantiate()
-		get_tree().current_scene.add_child(balloon)
-		balloon.start(load("res://dialog/story/player_see_apple.dialogue"), "start")
-
-func _on_player_far(body):
-	if body.name == "Player":
-		print("Player walked away from the apple")
+func _unhandled_input(event: InputEvent) -> void:
+	if in_range:
+		if event.is_action_pressed("show_dialogue"):
+			var balloon: BaseGameDialogueBalloon = balloon_scene.instantiate()
+			get_tree().current_scene.add_child(balloon)
+			balloon.start(load("res://dialog/misc/enemy.dialogue"), "start")

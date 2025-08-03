@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://c6du7xctn7uhw"]
+
+[ext_resource type="Texture2D" uid="uid://bka47vt6vd271" path="res://Art/enemy_idle.png" id="1_dedw4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_us07p"]
+atlas = ExtResource("1_dedw4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihvpu"]
+atlas = ExtResource("1_dedw4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyp71"]
+atlas = ExtResource("1_dedw4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d6x4"]
+atlas = ExtResource("1_dedw4")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_us07p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihvpu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyp71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d6x4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]

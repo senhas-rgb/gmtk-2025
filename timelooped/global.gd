@@ -6,7 +6,7 @@ func _ready() -> void:
 
 signal change_change_signal
 
-
+var enemy_defeated = false
 
 func action_change_scene(path) -> void:
 	get_tree().change_scene_to_file(path)
