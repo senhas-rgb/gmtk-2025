@@ -106,13 +106,10 @@ func handle_speeds(delta):
 		position = rewind_point
 		print("rewound to ", rewind_point)
 	elif Input.is_action_pressed("forward"):
-		forward()
-
-func forward():
-	if Input.is_action_pressed("forward"):
 		speed = fast
 	else:
 		speed = base
+
 #dicktion
 func get_game_state() -> Dictionary:
 	return {
