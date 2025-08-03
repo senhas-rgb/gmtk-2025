@@ -25,14 +25,21 @@ func _on_attack_pressed():
 	if not player_turn:
 		return
 	enemy_hp -= 3
+	$EnemyOuch.play()
+	$EnemyHurtParticles.emitting = true
 	info_label.text = "You attack! -3HP"
+	await get_tree().create_timer(0.5).timeout
+	$EnemyHurtParticles.emitting = false
 	end_turn()
 
 func _on_heal_pressed():
 	if not player_turn:
 		return
 	player_hp += 4
+	$PlayerHealParticles.emitting = true;
 	info_label.text = "You healed! +4 HP!"
+	await get_tree().create_timer(0.5).timeout
+	$PlayerHealParticles.emitting = false;
 	end_turn()
 
 func end_turn():

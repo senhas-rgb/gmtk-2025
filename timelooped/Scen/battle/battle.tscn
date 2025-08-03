@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://d2k6ukdjl8ths"]
+[gd_scene load_steps=37 format=3 uid="uid://d2k6ukdjl8ths"]
 
 [ext_resource type="Script" uid="uid://bo31fqtgb01dn" path="res://Scen/battle/battle.gd" id="1_anm17"]
 [ext_resource type="Shader" uid="uid://bukyy2nr6yuai" path="res://Scen/menu.gdshader" id="2_q7ert"]
@@ -6,6 +6,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cgloeyjm0pw4p" path="res://Characters/nenemy/enemyframes.tres" id="4_hliub"]
 [ext_resource type="AudioStream" uid="uid://bkn4rj8spkuu3" path="res://Art/hurt.wav" id="5_yh54j"]
 [ext_resource type="AudioStream" uid="uid://bvsc8p8i7muv2" path="res://Art/Music/fight.mp3" id="6_hliub"]
+[ext_resource type="AudioStream" uid="uid://chjl7xlbyx0bl" path="res://Art/enemyhurt.wav" id="7_derh5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_derh5"]
 shader = ExtResource("2_q7ert")
@@ -326,6 +327,9 @@ position = Vector2(589, 157)
 emitting = false
 amount = 20
 process_material = SubResource("ParticleProcessMaterial_us07p")
+
+[node name="EnemyOuch" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_derh5")
 
 [connection signal="pressed" from="Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="Heal" to="." method="_on_heal_pressed"]
