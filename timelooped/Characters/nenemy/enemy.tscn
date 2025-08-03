@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://dhhm8y5xygqlf"]
+[gd_scene load_steps=5 format=3 uid="uid://dhhm8y5xygqlf"]
 
 [ext_resource type="Script" uid="uid://b8tkugf5k2sos" path="res://Characters/nenemy/enemy.gd" id="1_cpshk"]
 [ext_resource type="Texture2D" uid="uid://tfmxs7e84qto" path="res://Art/gonst.png" id="2_pash1"]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pash1"]
 radius = 32.0
 height = 70.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pash1"]
+size = Vector2(12, 13)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_cpshk")
@@ -21,4 +24,12 @@ scale = Vector2(0.5, 0.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtZone"]
 shape = SubResource("CapsuleShape2D_pash1")
 
+[node name="KillEnemyZone" type="Area2D" parent="."]
+scale = Vector2(15.24, 12.12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillEnemyZone"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_pash1")
+
 [connection signal="body_entered" from="HurtZone" to="." method="_on_hurt_zone_body_entered"]
+[connection signal="area_entered" from="KillEnemyZone" to="." method="_on_kill_enemy_zone_area_entered"]
