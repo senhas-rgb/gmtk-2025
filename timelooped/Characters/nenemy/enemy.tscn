@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhhm8y5xygqlf"]
+[gd_scene load_steps=7 format=3 uid="uid://b7ggewf4nd8tp"]
 
 [ext_resource type="Script" uid="uid://b8tkugf5k2sos" path="res://Characters/nenemy/enemy.gd" id="1_cpshk"]
 [ext_resource type="SpriteFrames" uid="uid://c6du7xctn7uhw" path="res://Characters/nenemy/enemyframes.tres" id="2_pash1"]
