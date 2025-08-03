@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://c7c4d5dol75hj" path="res://um.png" id="2_0j7kw"]
 [ext_resource type="Shader" uid="uid://bukyy2nr6yuai" path="res://Scen/menu.gdshader" id="2_3a3pa"]
 [ext_resource type="AudioStream" uid="uid://dbeio48pw5075" path="res://Art/Music/Menu.mp3" id="4_3a3pa"]
-[ext_resource type="Script" path="res://Scen/controllerconfig.gd" id="4_7btxx"]
+[ext_resource type="Script" uid="uid://dik8fmoc0r8eg" path="res://Scen/controllerconfig.gd" id="4_7btxx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0j7kw"]
 shader = ExtResource("2_3a3pa")

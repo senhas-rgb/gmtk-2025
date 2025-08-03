@@ -1,0 +1,6 @@
+~ start
+Player: should i kill the enemy?
+- Kill
+	Player: i killed the enemy (the end)
+	do Global.action_change_scene("res://Levels/credits.tscn")
+=> END
