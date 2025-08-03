@@ -7,4 +7,4 @@ func _ready() -> void:
 	music.play()
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Levels/house.tscn")
+	get_tree().change_scene_to_file("res://Levels/intro.tscn")

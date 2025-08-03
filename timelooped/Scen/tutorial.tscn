@@ -30,8 +30,18 @@ shader_parameter/is_rotating = true
 
 [node name="ColorRect" type="ColorRect"]
 material = SubResource("ShaderMaterial_j4ujn")
-offset_right = 640.0
-offset_bottom = 360.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -665.0
+offset_top = -374.0
+offset_right = 665.0
+offset_bottom = 374.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
 color = Color(0.20775, 0.160164, 0, 1)
 script = ExtResource("2_ui6q3")
 
@@ -42,20 +52,20 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -48.0
-offset_top = -133.0
-offset_right = 48.0
-offset_bottom = -110.0
+offset_left = -52.0
+offset_top = -120.0
+offset_right = 44.0
+offset_bottom = -97.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "How to play:"
 
 [node name="Keyboard" type="Label" parent="."]
 layout_mode = 0
-offset_left = 43.0
-offset_top = 22.0
-offset_right = 191.0
-offset_bottom = 67.0
+offset_left = 384.0
+offset_top = 266.0
+offset_right = 532.0
+offset_bottom = 311.0
 theme_override_font_sizes/font_size = 32
 text = "Keyboard"
 
@@ -142,10 +152,10 @@ Confirm: X"
 
 [node name="Controller" type="Label" parent="."]
 layout_mode = 0
-offset_left = 442.0
-offset_top = 22.0
-offset_right = 590.0
-offset_bottom = 67.0
+offset_left = 783.0
+offset_top = 266.0
+offset_right = 939.0
+offset_bottom = 311.0
 theme_override_font_sizes/font_size = 32
 text = "Controller"
 
@@ -275,10 +285,10 @@ texture = ExtResource("11_wdxar")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 272.0
-offset_top = 266.0
-offset_right = 378.0
-offset_bottom = 297.0
+offset_left = 613.0
+offset_top = 510.0
+offset_right = 719.0
+offset_bottom = 541.0
 text = "START GAME"
 script = ExtResource("12_qmvqt")
 

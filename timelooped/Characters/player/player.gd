@@ -131,8 +131,8 @@ func save_state_to_file():
 		print("saved to ", file)
 #nugets ultimate load engine, copyright Nuget Incorporated 2025 for the GMTK 2025 Game Jam, all rights reserved
 func load_state_from_file():
-	if FileAccess.file_exists("res://savegame.json"):
-		var file = FileAccess.open("res://savegame.json", FileAccess.READ)
+	if FileAccess.file_exists("user://savegame.json"):
+		var file = FileAccess.open("user://savegame.json", FileAccess.READ)
 		if file:
 			var content = file.get_as_text()
 			file.close()

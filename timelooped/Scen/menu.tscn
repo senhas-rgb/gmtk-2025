@@ -32,9 +32,8 @@ script = ExtResource("1_k2y38")
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_0j7kw")
 layout_mode = 0
-offset_top = 2.0
-offset_right = 648.0
-offset_bottom = 363.0
+offset_right = 640.0
+offset_bottom = 360.0
 color = Color(0.688189, 0.21412, 0.113856, 1)
 
 [node name="Logo" type="Sprite2D" parent="."]
@@ -49,9 +48,9 @@ texture = ExtResource("2_0j7kw")
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
 offset_left = 7.0
-offset_top = 267.0
+offset_top = 240.0
 offset_right = 254.0
-offset_bottom = 453.0
+offset_bottom = 521.0
 scale = Vector2(0.4, 0.4)
 
 [node name="play" type="Button" parent="VBoxContainer"]
