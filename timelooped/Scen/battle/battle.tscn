@@ -266,14 +266,14 @@ position = Vector2(76, 159)
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_anm17")
 animation = &"idle_side"
-frame_progress = 0.535692
+frame_progress = 0.895044
 
 [node name="Enemy" type="AnimatedSprite2D" parent="."]
 position = Vector2(577, 157)
 scale = Vector2(1.5, 1.5)
 sprite_frames = ExtResource("4_hliub")
 animation = &"idle"
-frame_progress = 0.680763
+frame_progress = 0.273897
 
 [node name="Ouch" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_yh54j")

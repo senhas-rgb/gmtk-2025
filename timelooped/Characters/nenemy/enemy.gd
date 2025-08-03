@@ -15,7 +15,7 @@ func _ready() -> void:
 	interactable_component.interactable_deactivated.connect(on_interactable_deactivated)
 	interactable_label_component.hide()
 	
-	if killed == true:
+	if Global.enemy_defeated == true:
 		queue_free()
 		collision.disabled = true
 		collision2.disabled = true
