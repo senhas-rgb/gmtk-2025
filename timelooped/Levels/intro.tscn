@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=4 uid="uid://cwnp168ia4uku"]
+[gd_scene load_steps=7 format=4 uid="uid://cwnp168ia4uku"]
 
 [ext_resource type="Script" uid="uid://yi77msx44xyt" path="res://Levels/intro.gd" id="1_43tyq"]
 [ext_resource type="PackedScene" uid="uid://drq6i1r6e3n32" path="res://Characters/player/player.tscn" id="1_qay4d"]
-[ext_resource type="PackedScene" uid="uid://d2kkjhi82jsw0" path="res://Scen/inventory.tscn" id="2_43tyq"]
+[ext_resource type="PackedScene" uid="uid://cf7fdimaqpii4" path="res://Scen/inventory.tscn" id="2_43tyq"]
 [ext_resource type="TileSet" uid="uid://cvpbinyf7ojqs" path="res://tilesets/game_tile_set.tres" id="3_nubpj"]
 [ext_resource type="PackedScene" uid="uid://dewgr5r0ur6f8" path="res://Characters/guide/Guide.tscn" id="5_poivd"]
+[ext_resource type="AudioStream" uid="uid://cmbatbw0pffqg" path="res://Art/Music/intro.mp3" id="6_qay4d"]
 
 [node name="testscenetilemap" type="Node2D"]
 y_sort_enabled = true
@@ -51,3 +52,7 @@ tile_set = ExtResource("3_nubpj")
 [node name="Guide" parent="." instance=ExtResource("5_poivd")]
 position = Vector2(237, 167)
 scale = Vector2(0.58, 0.58)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_qay4d")
+parameters/looping = true

@@ -1,0 +1,289 @@
+[gd_scene load_steps=15 format=3 uid="uid://b2j0ughtikj6a"]
+
+[ext_resource type="Shader" uid="uid://bukyy2nr6yuai" path="res://Scen/menu.gdshader" id="1_lxnwx"]
+[ext_resource type="Script" uid="uid://dub6au4yf7r05" path="res://Scen/tutorial.gd" id="2_ui6q3"]
+[ext_resource type="Texture2D" uid="uid://yj0c2bhcyuf0" path="res://Art/ui/input_icons/Alt/T_X_Dpad_Left_Alt.png" id="3_qmvqt"]
+[ext_resource type="Texture2D" uid="uid://ncqsdcht82nf" path="res://Art/ui/input_icons/Alt/T_X_Dpad_Right_Alt.png" id="4_ymr1s"]
+[ext_resource type="Texture2D" uid="uid://dr78rd8aklvds" path="res://Art/ui/input_icons/Alt/T_X_Dpad_Up_Alt.png" id="5_ekumn"]
+[ext_resource type="Texture2D" uid="uid://cm1acer4dpiad" path="res://Art/ui/input_icons/Alt/T_X_Dpad_Down_Alt.png" id="6_vawkm"]
+[ext_resource type="Texture2D" uid="uid://nklag5nhl128" path="res://Art/ui/input_icons/Alt/T_X_RT_Alt.png" id="7_71loc"]
+[ext_resource type="Texture2D" uid="uid://bgqnaytp1pntd" path="res://Art/ui/input_icons/Alt/T_X_LB_Alt.png" id="8_xee50"]
+[ext_resource type="Texture2D" uid="uid://b1ph8ygtit1ln" path="res://Art/ui/input_icons/Alt/T_X_RB_Alt.png" id="9_gm6h2"]
+[ext_resource type="Texture2D" uid="uid://dqhwjrmh4rvpl" path="res://Art/ui/input_icons/Alt/T_X_A_White_Alt.png" id="10_tlk5c"]
+[ext_resource type="Texture2D" uid="uid://drrikrf6b5w4i" path="res://Art/ui/input_icons/Alt/T_X_X_Alt.png" id="11_wdxar"]
+[ext_resource type="Script" uid="uid://dik8fmoc0r8eg" path="res://Scen/controllerconfig.gd" id="12_qmvqt"]
+[ext_resource type="AudioStream" uid="uid://g5dmkfnvgih" path="res://Art/Music/menu-motif.mp3" id="12_ui6q3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j4ujn"]
+shader = ExtResource("1_lxnwx")
+shader_parameter/spin_rotation_speed = 2.0
+shader_parameter/move_speed = 9.45
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(1, 1, 1, 1)
+shader_parameter/colour_2 = Color(0.164347, 0.462821, 0.42785, 1)
+shader_parameter/colour_3 = Color(0.086, 0.137, 0.145, 1)
+shader_parameter/contrast = 3.355
+shader_parameter/lighting = 4.61
+shader_parameter/spin_amount = 0.34
+shader_parameter/pixel_filter = 740.0
+shader_parameter/is_rotating = true
+
+[node name="ColorRect" type="ColorRect"]
+material = SubResource("ShaderMaterial_j4ujn")
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.20775, 0.160164, 0, 1)
+script = ExtResource("2_ui6q3")
+
+[node name="howto" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -133.0
+offset_right = 48.0
+offset_bottom = -110.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "How to play:"
+
+[node name="Keyboard" type="Label" parent="."]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 22.0
+offset_right = 191.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 32
+text = "Keyboard"
+
+[node name="Move" type="Label" parent="Keyboard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = 108.5
+offset_right = 14.0
+offset_bottom = 209.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Left: A
+Right: D
+Up: W 
+Down: S"
+
+[node name="UseRewind" type="Label" parent="Keyboard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = 62.5
+offset_right = 61.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Use Rewind: R"
+
+[node name="MakeRewind" type="Label" parent="Keyboard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = 38.5
+offset_right = 96.0
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Make a rewind point: C"
+
+[node name="UseFF" type="Label" parent="Keyboard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = 85.5
+offset_right = 82.5
+offset_bottom = 108.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Use Fast Forward: F"
+
+[node name="UI" type="Label" parent="Keyboard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 110.5
+offset_right = 185.0
+offset_bottom = 211.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu: X
+Up: ARROW_UP
+Down: ARROW_DOWN
+Confirm: X"
+
+[node name="Controller" type="Label" parent="."]
+layout_mode = 0
+offset_left = 442.0
+offset_top = 22.0
+offset_right = 590.0
+offset_bottom = 67.0
+theme_override_font_sizes/font_size = 32
+text = "Controller"
+
+[node name="Move" type="Label" parent="Controller"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = 110.5
+offset_right = 14.0
+offset_bottom = 211.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Left: 
+Right: 
+Up:
+Down: "
+
+[node name="TXDpadLeftAlt" type="Sprite2D" parent="Controller/Move"]
+position = Vector2(49, 14)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("3_qmvqt")
+
+[node name="TXDpadRightAlt" type="Sprite2D" parent="Controller/Move"]
+position = Vector2(59, 41)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_ymr1s")
+
+[node name="TXDpadUpAlt" type="Sprite2D" parent="Controller/Move"]
+position = Vector2(39, 65)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("5_ekumn")
+
+[node name="TXDpadDownAlt" type="Sprite2D" parent="Controller/Move"]
+position = Vector2(62, 91)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_vawkm")
+
+[node name="UseRewind" type="Label" parent="Controller"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -47.5
+offset_top = 62.5
+offset_right = 61.5
+offset_bottom = 85.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Use Rewind: "
+
+[node name="TXRtAlt" type="Sprite2D" parent="Controller/UseRewind"]
+position = Vector2(109.5, 13)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_71loc")
+
+[node name="MakeRewind" type="Label" parent="Controller"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = 38.5
+offset_right = 96.0
+offset_bottom = 61.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Make a rewind point: "
+
+[node name="TXLbAlt" type="Sprite2D" parent="Controller/MakeRewind"]
+position = Vector2(178, 13)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_xee50")
+
+[node name="UseFF" type="Label" parent="Controller"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.5
+offset_top = 85.5
+offset_right = 82.5
+offset_bottom = 108.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Use Fast Forward: "
+
+[node name="TXRbAlt" type="Sprite2D" parent="Controller/UseFF"]
+position = Vector2(151.5, 12)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("9_gm6h2")
+
+[node name="UI" type="Label" parent="Controller"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 14.0
+offset_top = 108.5
+offset_right = 185.0
+offset_bottom = 209.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Menu: 
+Confirm: "
+
+[node name="TXAWhiteAlt" type="Sprite2D" parent="Controller/UI"]
+position = Vector2(77, 38)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("10_tlk5c")
+
+[node name="TXXAlt" type="Sprite2D" parent="Controller/UI"]
+position = Vector2(64, 14)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_wdxar")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 272.0
+offset_top = 266.0
+offset_right = 378.0
+offset_bottom = 297.0
+text = "START GAME"
+script = ExtResource("12_qmvqt")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("12_ui6q3")
+parameters/looping = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

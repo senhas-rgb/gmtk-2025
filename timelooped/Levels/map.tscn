@@ -3,7 +3,7 @@
 [ext_resource type="TileSet" uid="uid://cvpbinyf7ojqs" path="res://tilesets/game_tile_set.tres" id="1_qpn7y"]
 [ext_resource type="PackedScene" uid="uid://cf7fdimaqpii4" path="res://Scen/inventory.tscn" id="2_vw7rh"]
 [ext_resource type="PackedScene" uid="uid://drq6i1r6e3n32" path="res://Characters/player/player.tscn" id="2_yjb6t"]
-[ext_resource type="AudioStream" uid="uid://cggqbitt8gbfs" path="res://Art/background.ogg" id="3_borke"]
+[ext_resource type="AudioStream" uid="uid://cggqbitt8gbfs" path="res://Art/Music/background.ogg" id="3_borke"]
 [ext_resource type="PackedScene" uid="uid://dewgr5r0ur6f8" path="res://Characters/guide/Guide.tscn" id="4_rxu6g"]
 [ext_resource type="PackedScene" uid="uid://dhhm8y5xygqlf" path="res://Characters/nenemy/enemy.tscn" id="5_ggo44"]
 

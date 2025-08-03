@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b5qbl5kqjrvga"
+path="res://.godot/imported/prostate cancer.mp3-8c73bea796860af7eb343b1cf1e1c92b.mp3str"
+
+[deps]
+
+source_file="res://Art/Music/prostate cancer.mp3"
+dest_files=["res://.godot/imported/prostate cancer.mp3-8c73bea796860af7eb343b1cf1e1c92b.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

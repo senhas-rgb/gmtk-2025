@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwfa3rmeaqdhy"]
+[gd_scene load_steps=7 format=3 uid="uid://cwfa3rmeaqdhy"]
 
 [ext_resource type="Script" uid="uid://kh2bdqh7a6ew" path="res://Scen/meni.gd" id="1_k2y38"]
 [ext_resource type="Texture2D" uid="uid://c7c4d5dol75hj" path="res://um.png" id="2_0j7kw"]
 [ext_resource type="Shader" uid="uid://bukyy2nr6yuai" path="res://Scen/menu.gdshader" id="2_3a3pa"]
-[ext_resource type="AudioStream" uid="uid://cggqbitt8gbfs" path="res://Art/background.ogg" id="4_3a3pa"]
+[ext_resource type="AudioStream" uid="uid://dbeio48pw5075" path="res://Art/Music/Menu.mp3" id="4_3a3pa"]
+[ext_resource type="Script" uid="uid://dik8fmoc0r8eg" path="res://Scen/controllerconfig.gd" id="4_7btxx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0j7kw"]
 shader = ExtResource("2_3a3pa")
@@ -58,6 +59,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 60
 text = "PLAY"
 autowrap_mode = 1
+script = ExtResource("4_7btxx")
 
 [node name="credit" type="Button" parent="VBoxContainer"]
 layout_mode = 2

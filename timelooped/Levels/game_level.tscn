@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://mp43h0ywpc4a"]
 
 [ext_resource type="PackedScene" uid="uid://drq6i1r6e3n32" path="res://Characters/player/player.tscn" id="1_up8ek"]
-[ext_resource type="AudioStream" uid="uid://cggqbitt8gbfs" path="res://Art/background.ogg" id="2_wlvk4"]
+[ext_resource type="AudioStream" uid="uid://cggqbitt8gbfs" path="res://Art/Music/background.ogg" id="2_wlvk4"]
 
 [node name="GameLevel" type="Node2D"]
 
