@@ -6,11 +6,12 @@ extends Node2D
 @onready var attack_button = $Attack
 @onready var heal_button = $Heal
 
-var player_hp = 10
+var player_hp = call_health()
 var enemy_hp = 10
 var player_turn = true
 
 func _ready():
+	print("player health ", player_hp)
 	$Enemy.flip_h = true
 	update_ui()
 	attack_button.pressed.connect(_on_attack_pressed)
@@ -43,10 +44,12 @@ func end_turn():
 func enemy_action():
 	if enemy_hp <= 0:
 		info_label.text = "You win!"
+		
 		$Enemy.hide()
 		attack_button.hide()
 		heal_button.hide()
 		Global.enemy_defeated = true
+		
 		get_tree().change_scene_to_file("res://Levels/house.tscn")
 	
 
@@ -67,4 +70,12 @@ func update_ui():
 
 func call_health():
 	if FileAccess.file_exists("res://savegame.json"):
-		pass
+		var file = FileAccess.open("res://savegame.json",FileAccess.READ)
+		if file:
+			var content = file.get_as_text()
+			file.close()
+			
+			var result = JSON.parse_string(content)
+			if typeof(result) == TYPE_DICTIONARY and result.has("health"):
+				return int(result["health"])
+	return -1
