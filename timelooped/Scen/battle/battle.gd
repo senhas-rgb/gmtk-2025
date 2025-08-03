@@ -64,7 +64,8 @@ func enemy_action():
 	$Ouch.play()
 	$PlayerHurtParticles.emitting = true;
 	info_label.text = "Enemy hits you for 2!"
-	await get_tree().create_timer(0.5).timeout
+	if (enemy_hp > 0):
+		await get_tree().create_timer(0.5).timeout
 	$PlayerHurtParticles.emitting = false;
 	player_turn = true
 
