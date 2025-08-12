@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=4 uid="uid://3rflof81n8fr"]
 
 [ext_resource type="PackedScene" uid="uid://drq6i1r6e3n32" path="res://Characters/player/player.tscn" id="1_17362"]
-[ext_resource type="Script" path="res://Levels/house.gd" id="1_t8dpr"]
+[ext_resource type="Script" uid="uid://hcmdjuusqlan" path="res://Levels/house.gd" id="1_t8dpr"]
 [ext_resource type="PackedScene" uid="uid://cf7fdimaqpii4" path="res://Scen/inventory.tscn" id="2_3cgim"]
 [ext_resource type="TileSet" uid="uid://cvpbinyf7ojqs" path="res://tilesets/game_tile_set.tres" id="3_t8dpr"]
 [ext_resource type="PackedScene" uid="uid://daclt2hw7krbd" path="res://Levels/items/apple.tscn" id="4_17362"]

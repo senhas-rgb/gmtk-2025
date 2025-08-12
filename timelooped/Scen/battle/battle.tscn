@@ -1,7 +1,8 @@
-[gd_scene load_steps=37 format=3 uid="uid://d2k6ukdjl8ths"]
+[gd_scene load_steps=38 format=3 uid="uid://d2k6ukdjl8ths"]
 
 [ext_resource type="Script" uid="uid://bo31fqtgb01dn" path="res://Scen/battle/battle.gd" id="1_anm17"]
 [ext_resource type="Shader" uid="uid://bukyy2nr6yuai" path="res://Scen/menu.gdshader" id="2_q7ert"]
+[ext_resource type="Theme" uid="uid://ckn4kuwlf3is6" path="res://MinimalUI.tres" id="3_us07p"]
 [ext_resource type="Texture2D" uid="uid://c3d4meisj6esv" path="res://Art/player_animations.png" id="3_yh54j"]
 [ext_resource type="SpriteFrames" uid="uid://cgloeyjm0pw4p" path="res://Characters/nenemy/enemyframes.tres" id="4_hliub"]
 [ext_resource type="AudioStream" uid="uid://bkn4rj8spkuu3" path="res://Art/hurt.wav" id="5_yh54j"]
@@ -256,6 +257,8 @@ script = ExtResource("1_anm17")
 material = SubResource("ShaderMaterial_derh5")
 offset_right = 640.0
 offset_bottom = 360.0
+size_flags_horizontal = 10
+size_flags_vertical = 3
 color = Color(0.969002, 0, 0.213969, 1)
 
 [node name="Attack" type="Button" parent="."]
@@ -263,6 +266,7 @@ offset_left = 3.0
 offset_top = 256.0
 offset_right = 106.0
 offset_bottom = 287.0
+theme = ExtResource("3_us07p")
 text = "attack"
 
 [node name="Heal" type="Button" parent="."]
@@ -270,11 +274,13 @@ offset_left = 3.0
 offset_top = 225.0
 offset_right = 45.0
 offset_bottom = 256.0
+theme = ExtResource("3_us07p")
 text = "heal"
 
 [node name="Continue" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
+theme = ExtResource("3_us07p")
 
 [node name="InfoLabel" type="Label" parent="."]
 anchors_preset = 7
@@ -287,6 +293,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 grow_horizontal = 2
 grow_vertical = 0
+theme = ExtResource("3_us07p")
 
 [node name="Player" type="AnimatedSprite2D" parent="."]
 position = Vector2(76, 159)

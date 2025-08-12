@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cf7fdimaqpii4"]
+[gd_scene load_steps=6 format=3 uid="uid://cf7fdimaqpii4"]
 
 [ext_resource type="Texture2D" uid="uid://br22kie37tu15" path="res://Art/ui/Sprite sheets/Setting menu.png" id="1_4w5ki"]
 [ext_resource type="Script" uid="uid://dnfckj5jm07p0" path="res://Scen/inventory.gd" id="1_p5l2m"]
 [ext_resource type="FontFile" uid="uid://be05wa8g4ynbd" path="res://Art/ui/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_rq8sn"]
+[ext_resource type="Theme" uid="uid://ckn4kuwlf3is6" path="res://MinimalUI.tres" id="3_1x672"]
 [ext_resource type="Texture2D" uid="uid://86qhn4fjepnc" path="res://Art/ui/ui_arrow_left_right.png" id="4_p5l2m"]
 
 [node name="Menu" type="CanvasLayer"]
@@ -40,6 +41,7 @@ offset_bottom = 45.0
 
 [node name="Label" type="Label" parent="Control/NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_1x672")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_rq8sn")
 theme_override_font_sizes/font_size = 18
@@ -49,6 +51,7 @@ boogaloo"
 
 [node name="Label2" type="Label" parent="Control/NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_1x672")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_rq8sn")
 theme_override_font_sizes/font_size = 27
@@ -58,6 +61,7 @@ text = "
 
 [node name="Label3" type="Label" parent="Control/NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_1x672")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_rq8sn")
 theme_override_font_sizes/font_size = 27
@@ -66,6 +70,7 @@ text = "    SAVE
 
 [node name="Label4" type="Label" parent="Control/NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_1x672")
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_rq8sn")
 theme_override_font_sizes/font_size = 27

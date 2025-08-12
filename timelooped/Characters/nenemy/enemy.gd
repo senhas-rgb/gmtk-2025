@@ -27,8 +27,6 @@ func on_interactable_activated() -> void:
 func on_interactable_deactivated() -> void:
 	interactable_label_component.hide()
 	in_range = false
-	killed = true
-	queue_free()
 	collision.disabled = true
 	collision2.disabled = true
 

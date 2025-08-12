@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://d3xyjxufy1je2"]
+
+[ext_resource type="Shader" uid="uid://bukyy2nr6yuai" path="res://Scen/menu.gdshader" id="1_350xa"]
+
+[resource]
+shader = ExtResource("1_350xa")
+shader_parameter/spin_rotation_speed = 2.0
+shader_parameter/move_speed = 10.0
+shader_parameter/offset = Vector2(0, 0)
+shader_parameter/colour_1 = Color(0.343198, 0.0682756, 0.0554893, 1)
+shader_parameter/colour_2 = Color(0, 0, 0, 1)
+shader_parameter/colour_3 = Color(0, 0, 0, 1)
+shader_parameter/contrast = 3.5
+shader_parameter/lighting = 5.0
+shader_parameter/spin_amount = 0.3
+shader_parameter/pixel_filter = 740.0
+shader_parameter/is_rotating = true

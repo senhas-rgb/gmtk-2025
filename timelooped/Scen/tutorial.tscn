@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://b2j0ughtikj6a"]
+[gd_scene load_steps=16 format=3 uid="uid://b2j0ughtikj6a"]
 
 [ext_resource type="Shader" uid="uid://bukyy2nr6yuai" path="res://Scen/menu.gdshader" id="1_lxnwx"]
 [ext_resource type="Script" uid="uid://dub6au4yf7r05" path="res://Scen/tutorial.gd" id="2_ui6q3"]
 [ext_resource type="Texture2D" uid="uid://yj0c2bhcyuf0" path="res://Art/ui/input_icons/Alt/T_X_Dpad_Left_Alt.png" id="3_qmvqt"]
+[ext_resource type="Theme" uid="uid://ckn4kuwlf3is6" path="res://MinimalUI.tres" id="3_ymr1s"]
 [ext_resource type="Texture2D" uid="uid://ncqsdcht82nf" path="res://Art/ui/input_icons/Alt/T_X_Dpad_Right_Alt.png" id="4_ymr1s"]
 [ext_resource type="Texture2D" uid="uid://dr78rd8aklvds" path="res://Art/ui/input_icons/Alt/T_X_Dpad_Up_Alt.png" id="5_ekumn"]
 [ext_resource type="Texture2D" uid="uid://cm1acer4dpiad" path="res://Art/ui/input_icons/Alt/T_X_Dpad_Down_Alt.png" id="6_vawkm"]
@@ -58,6 +59,7 @@ offset_right = 44.0
 offset_bottom = -97.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ymr1s")
 text = "How to play:"
 
 [node name="Keyboard" type="Label" parent="."]
@@ -66,6 +68,7 @@ offset_left = 384.0
 offset_top = 266.0
 offset_right = 532.0
 offset_bottom = 311.0
+theme = ExtResource("3_ymr1s")
 theme_override_font_sizes/font_size = 32
 text = "Keyboard"
 
@@ -82,6 +85,7 @@ offset_right = 14.0
 offset_bottom = 209.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ymr1s")
 text = "Left: A
 Right: D
 Up: W 
@@ -100,6 +104,7 @@ offset_right = 61.5
 offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ymr1s")
 text = "Use Rewind: R"
 
 [node name="MakeRewind" type="Label" parent="Keyboard"]
@@ -115,6 +120,7 @@ offset_right = 96.0
 offset_bottom = 61.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ymr1s")
 text = "Make a rewind point: C"
 
 [node name="UseFF" type="Label" parent="Keyboard"]
@@ -130,6 +136,7 @@ offset_right = 82.5
 offset_bottom = 108.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ymr1s")
 text = "Use Fast Forward: F"
 
 [node name="UI" type="Label" parent="Keyboard"]
@@ -145,6 +152,7 @@ offset_right = 185.0
 offset_bottom = 211.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ymr1s")
 text = "Menu: X
 Up: ARROW_UP
 Down: ARROW_DOWN
@@ -156,6 +164,7 @@ offset_left = 783.0
 offset_top = 266.0
 offset_right = 939.0
 offset_bottom = 311.0
+theme = ExtResource("3_ymr1s")
 theme_override_font_sizes/font_size = 32
 text = "Controller"
 
@@ -172,6 +181,7 @@ offset_right = 14.0
 offset_bottom = 211.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ymr1s")
 text = "Left: 
 Right: 
 Up:
@@ -210,6 +220,7 @@ offset_right = 61.5
 offset_bottom = 85.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ymr1s")
 text = "Use Rewind: "
 
 [node name="TXRtAlt" type="Sprite2D" parent="Controller/UseRewind"]
@@ -230,6 +241,7 @@ offset_right = 96.0
 offset_bottom = 61.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ymr1s")
 text = "Make a rewind point: "
 
 [node name="TXLbAlt" type="Sprite2D" parent="Controller/MakeRewind"]
@@ -250,6 +262,7 @@ offset_right = 82.5
 offset_bottom = 108.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ymr1s")
 text = "Use Fast Forward: "
 
 [node name="TXRbAlt" type="Sprite2D" parent="Controller/UseFF"]
@@ -270,6 +283,7 @@ offset_right = 185.0
 offset_bottom = 209.5
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_ymr1s")
 text = "Menu: 
 Confirm: "
 
@@ -289,6 +303,7 @@ offset_left = 613.0
 offset_top = 510.0
 offset_right = 719.0
 offset_bottom = 541.0
+theme = ExtResource("3_ymr1s")
 text = "START GAME"
 script = ExtResource("12_qmvqt")
 

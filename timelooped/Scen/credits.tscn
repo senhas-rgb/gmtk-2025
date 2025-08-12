@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://du4iy3koav8n"]
+[gd_scene load_steps=7 format=3 uid="uid://du4iy3koav8n"]
 
 [ext_resource type="Script" uid="uid://sk8uomqgh1xy" path="res://Scen/credits.gd" id="1_al2ys"]
 [ext_resource type="Shader" uid="uid://bukyy2nr6yuai" path="res://Scen/menu.gdshader" id="1_s43kp"]
+[ext_resource type="Theme" uid="uid://ckn4kuwlf3is6" path="res://MinimalUI.tres" id="2_xgubp"]
 [ext_resource type="AudioStream" uid="uid://g5dmkfnvgih" path="res://Art/Music/menu-motif.mp3" id="3_qyo6g"]
 [ext_resource type="Script" uid="uid://dik8fmoc0r8eg" path="res://Scen/controllerconfig.gd" id="4_qyo6g"]
 
@@ -47,6 +48,7 @@ offset_top = 30.0
 offset_right = 1415.0
 offset_bottom = 326.0
 scale = Vector2(0.348692, 0.421051)
+theme = ExtResource("2_xgubp")
 theme_override_font_sizes/font_size = 64
 text = "Credits:
 Devs: Nuget, PhoenixPulze
@@ -70,6 +72,7 @@ script = ExtResource("1_al2ys")
 
 [node name="Button" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_xgubp")
 theme_override_font_sizes/font_size = 128
 text = "Back"
 script = ExtResource("4_qyo6g")

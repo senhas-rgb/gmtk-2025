@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dshp50w43bwo1"]
+[gd_scene load_steps=5 format=3 uid="uid://dshp50w43bwo1"]
 
 [ext_resource type="Texture2D" uid="uid://csocwhfop36nt" path="res://Art/ui/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_fgb4d"]
+[ext_resource type="Theme" uid="uid://ckn4kuwlf3is6" path="res://MinimalUI.tres" id="2_gmpnu"]
 [ext_resource type="FontFile" uid="uid://be05wa8g4ynbd" path="res://Art/ui/fonts/pixelFont-7-8x14-sproutLands.ttf" id="2_ujepn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmpnu"]
@@ -24,6 +25,7 @@ layout_mode = 0
 offset_top = 4.07
 offset_right = 18.0
 offset_bottom = 17.07
+theme = ExtResource("2_gmpnu")
 theme_override_fonts/font = ExtResource("2_ujepn")
 theme_override_font_sizes/font_size = 8
 text = "E"
