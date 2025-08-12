@@ -62,11 +62,45 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.042
 anchor_bottom = 0.144
-offset_right = 0.119995
+offset_left = 78.0
+offset_right = -77.88
 offset_bottom = 0.159996
 grow_horizontal = 2
 theme = ExtResource("4_xyovi")
 horizontal_alignment = 1
+
+[node name="UpdText" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.011
+anchor_top = 0.028
+anchor_right = 0.21
+anchor_bottom = 0.172
+offset_left = -15.3733
+offset_top = 119.92
+offset_right = 70.2666
+offset_bottom = 246.08
+grow_horizontal = 2
+theme = ExtResource("4_xyovi")
+text = "UPDATE 0.0.2"
+horizontal_alignment = 1
+
+[node name="UpdContent" type="RichTextLabel" parent="UpdText"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.042
+anchor_bottom = 0.144
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 13.054
+offset_bottom = 77.368
+grow_horizontal = 2
+theme = ExtResource("4_xyovi")
+theme_override_font_sizes/normal_font_size = 20
+text = "General Bug Fixes
+UWP Support
+Fixed Game Softlock
+"
 
 [node name="logo" type="Sprite2D" parent="."]
 position = Vector2(444.325, 278.041)

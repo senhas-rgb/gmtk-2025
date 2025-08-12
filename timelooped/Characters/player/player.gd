@@ -123,7 +123,7 @@ func get_game_state() -> Dictionary:
 #nugets ultimate save engine, copyright Nuget Incorporated 2025 for the GMTK 2025 Game Jam, all rights reserved
 func save_state_to_file():
 	var state = get_game_state()
-	var file = FileAccess.open("res://savegame.json", FileAccess.WRITE)
+	var file = FileAccess.open("user://savegame.json", FileAccess.WRITE)
 	if file:
 		file.store_string(JSON.stringify(state))
 		file.close()
