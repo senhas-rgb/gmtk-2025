@@ -1,0 +1,18 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c5u3wp17indl5"]
+
+[ext_resource type="FontFile" uid="uid://be05wa8g4ynbd" path="res://Art/ui/fonts/pixelFont-7-8x14-sproutLands.ttf" id="1_0c1r0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojp0s"]
+bg_color = Color(0.495394, 0.115057, 0.0691772, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0c1r0"]
+bg_color = Color(0.649804, 0.164254, 0.106412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8c684"]
+bg_color = Color(0.464925, 0.105615, 0.0622739, 1)
+
+[resource]
+Button/fonts/font = ExtResource("1_0c1r0")
+Button/styles/hover = SubResource("StyleBoxFlat_ojp0s")
+Button/styles/normal = SubResource("StyleBoxFlat_0c1r0")
+Button/styles/pressed = SubResource("StyleBoxFlat_8c684")
